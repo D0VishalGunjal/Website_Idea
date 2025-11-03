@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>ForschMedX — Transforming Lives Through Innovation</title>
+  <meta name="description" content="ForschMedX builds human-centered health technology that turns bold ideas into reliable products." />
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700;800&family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet" />
+
+  <!-- Your main stylesheet -->
+  <link rel="stylesheet" href="styles.css" />
+
+  <!-- Small overrides to fix the exact issues you showed (centering + video bg + logo wrapping) -->
+  <style>
+    /* Keep brand on one line and make logo render cleanly */
+    .brand { display:flex; align-items:center; gap:10px; white-space:nowrap; }
+    .brand-mark { width:28px; height:28px; object-fit:contain; display:block; }
+
+    /* Ensure hero content is centered regardless of container widths */
+    .hero .container { display:flex; flex-direction:column; align-items:center; }
+    .hero-content { text-align:center; margin-inline:auto; }
+    .kicker, .display, .subcopy { margin-left:auto; margin-right:auto; }
+
+    /* Make the hero video behave like a fixed background (with iOS fallback via .no-fixed) */
+    .hero-media { position:absolute; inset:0; z-index:-2; overflow:hidden; }
+    .hero-video{
+      position:fixed; inset:0; width:100%; height:100%;
+      object-fit:cover; filter:brightness(.6) saturate(110%);
+      z-index:-2;
+    }
+    .hero.no-fixed .hero-video{ position:absolute; }
+  </style>
+</head>
+<body>
+  <!-- Skip link -->
+  <a class="skip-link" href="#main">Skip to main content</a>
+
+  <!-- Header / Navigation -->
+  <header class="site-header" role="banner">
+    <div class="container nav-wrap">
+      <!-- LOGO FIX: make sure assets/logo.png exists in your project folder -->
+      <a class="brand" href="#top" aria-label="ForschMedX Home">
+        <img class="brand-mark" src="assets/logo.png" alt="ForschMedX logo" />
+        <span>ForschMedX</span>
+      </a>
+      <nav class="site-nav" aria-label="Primary">
+        <ul>
+          <li><a href="#mission">Mission</a></li>
+          <li><a href="#portfolio">Portfolio</a></li>
+          <li><a href="#careers">Careers</a></li>
+          <li><a href="#testimonials">Testimonials</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Hero -->
+  <section id="top" class="hero" aria-label="Hero">
+    <div class="hero-media" aria-hidden="true">
+      <!-- VIDEO BG: make sure assets/intro-video.mp4 exists; poster is your hero image -->
+      <video class="hero-video" autoplay muted loop playsinline poster="assets/hero-banner.jpg">
+        <source src="assets/intro-video.mp4" type="video/mp4" />
+      </video>
+      <div class="hero-overlay"></div>
+    </div>
+
+    <div class="container hero-content">
+      <p class="kicker" aria-label="Tagline">TRANSFORMING LIVES THROUGH INNOVATION</p>
+
+      <h1 class="display">
+        <span class="sr-only">Imagine. Initiate. Innovate.</span>
+        <!-- <span id="tw-prefix" aria-hidden="true">We </span> -->
+        <span id="typewriter" aria-live="polite" aria-atomic="true"></span>
+        <span id="caret" class="caret pipe" aria-hidden="true"></span>
+      </h1>
+
+      <p class="subcopy">
+        We’re a product studio focused on practical health tech. <br />
+        We turn clinical insight into simple, safe, scalable solutions. <br />
+        Built with empathy. Measured by outcomes.
+      </p>
+
+      <div class="cta-row">
+        <a class="btn btn-primary" href="#mission">LEARN MORE</a>
+        <a class="btn btn-ghost" href="#about">ABOUT FORSCHMEDX</a>
+      </div>
+    </div>
+  </section>
+
+  <main id="main" tabindex="-1">
+    <!-- Mission -->
+    <section id="mission" class="section reveal" data-nav="Mission" aria-labelledby="mission-title">
+      <div class="container">
+        <h2 id="mission-title">Our Mission</h2>
+        <p class="lead">
+          At ForschMedX, we design devices that reduce complexity for clinicians and improve comfort for patients.
+          Our approach blends rigorous engineering with human-centered design, so every feature earns its place at the bedside.
+        </p>
+
+        <figure class="video" style="text-align:center">
+          <!-- Use the same sources you have -->
+          <video controls preload="metadata" poster="assets/hero-banner.jpg" style="max-width:900px; width:100%;">
+            <source src="assets/intro-video.mp4" type="video/mp4" />
+            Your browser does not support the video tag.
+          </video>
+          <figcaption>Short introduction to how we approach problem-solving and product safety.</figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <!-- Innovation Portfolio -->
+    <section id="portfolio" class="section reveal" data-nav="Portfolio" aria-labelledby="portfolio-title">
+      <div class="container">
+        <h2 id="portfolio-title">Innovation Portfolio</h2>
+        <div class="grid cards">
+          <article class="card">
+            <img src="assets/hero-banner.jpg" alt="Concept render with medical components" loading="lazy" />
+            <div class="card-body">
+              <h3>TrachEase</h3>
+              <p>Automated airway hygiene to reduce infection risk and lighten ICU workload.</p>
+              <a class="card-link" href="#contact" aria-label="Learn more about TrachEase">Learn more →</a>
+            </div>
+          </article>
+
+          <article class="card">
+            <img src="assets/logo.png" alt="ForschMedX system icon" loading="lazy" />
+            <div class="card-body">
+              <h3>Pre-ROP X</h3>
+              <p>Microfluidics + AI for early signals that guide timely neonatal eye care.</p>
+              <a class="card-link" href="#contact" aria-label="Learn more about Pre-ROP X">Learn more →</a>
+            </div>
+          </article>
+
+          <article class="card">
+            <!-- If you want to show 'company_name' artwork, convert it to an image (PNG/JPG) in assets and update src -->
+            <img src="assets/logo.png" alt="Design for Safety pattern" loading="lazy" />
+            <div class="card-body">
+              <h3>Design for Safety</h3>
+              <p>A library of reusable patterns that make medical devices clearer, calmer, and safer.</p>
+              <a class="card-link" href="#contact" aria-label="Learn more about Design for Safety">Learn more →</a>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Careers -->
+    <section id="careers" class="section reveal" data-nav="Careers" aria-labelledby="careers-title">
+      <div class="container">
+        <h2 id="careers-title">Careers</h2>
+        <p class="lead">
+          We’re building a thoughtful, multidisciplinary team. If you love prototyping, testing, and learning with clinicians,
+          we’d like to hear from you.
+        </p>
+        <a class="btn btn-primary" href="mailto:careers@forschmedx.com" aria-label="Email careers at ForschMedX">Join the team</a>
+      </div>
+    </section>
+
+    <!-- Testimonials -->
+    <section id="testimonials" class="section reveal" data-nav="Testimonials" aria-labelledby="testimonials-title">
+      <div class="container">
+        <h2 id="testimonials-title">Testimonials</h2>
+        <blockquote class="quote" cite="#">
+          <p>“Real innovation is quiet: it removes steps, reduces stress, and lets people focus on care.”</p>
+          <footer>— A partner clinician</footer>
+        </blockquote>
+      </div>
+    </section>
+
+    <!-- About -->
+    <section id="about" class="section reveal" data-nav="About" aria-labelledby="about-title">
+      <div class="container">
+        <h2 id="about-title">About ForschMedX</h2>
+        <p class="lead">
+          ForschMedX is an independent health-tech studio based in India. We collaborate with hospitals and researchers to convert
+          validated needs into reliable devices—built to standards, tested in the lab, and refined with frontline feedback.
+        </p>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer / Contact -->
+  <footer id="contact" class="site-footer" role="contentinfo" aria-labelledby="contact-title">
+    <div class="container">
+      <h2 id="contact-title" class="sr-only">Contact</h2>
+      <address class="contact">
+        <p><strong>ForschMedX Pvt. Ltd.</strong><br />
+        VJTI-TBI, Matunga, Mumbai, India</p>
+        <p>Phone: <a href="tel:+919999999999">+91 99999 99999</a><br />
+        Email: <a href="mailto:contact@forschmedx.com">contact@forschmedx.com</a></p>
+        <p>Hours: Mon–Fri, 9:00–18:00 IST</p>
+      </address>
+      <p class="legal">© <span id="year"></span> ForschMedX. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <script src="script.js" defer></script>
+</body>
+</html>
